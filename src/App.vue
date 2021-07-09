@@ -35,11 +35,12 @@
       <div
           v-for="(elem, i) in task"
           :key="i"
-
           class="task"
-          v-bind:class="[{ l1: elem.type === 1 }, { l2: elem.type === 2 }, { l3: elem.type === 3 }]"
+          v-bind:class="[{ type_1: elem.type === '1' }, { type_2: elem.type === '2' }, { type_3: elem.type === '3' }]"
       >
         <p>{{ elem.description }}</p>
+
+        <button @click="deleteTask(i)"> Закрыть </button>>
       </div>
     </div>
 
@@ -76,6 +77,9 @@ export default {
     add_task() {
       document.getElementById('addTask').style.display = "inline";
     },
+    deleteTask(i) {
+      this.task.splice(i, 1);
+    },
     editSchema() {
       if (this.clicked) {
         document.documentElement.style.setProperty('--color-title-gray', '#7f7f7f');
@@ -89,14 +93,6 @@ export default {
     add: function (elem){
       this.task.unshift(elem)
     }
-
-    /*computed: {
-      add_task_to_grid: function () {
-        let this_Comp = this;
-        var type = this_Comp.$store.getters.GET_Type;
-        var desc = this_Comp.$store.getters.GET_Desc;
-      },
-    },*/
   }
 }
 </script>
@@ -134,13 +130,13 @@ body {
   border: 1px black solid;
   flex-wrap: wrap;
 }
-.l1{
+.type_1{
   width: 150px;
 }
-.l2{
+.type_2{
   width: 200px;
 }
-.l3{
+.type_3{
   width: 300px;
 }
 .footer {
@@ -191,7 +187,6 @@ body {
   flex-direction: column;
   justify-content: space-between;
   background-color: white;
-  /*width: 280px;*/
   border: 1px solid black;
   align-items: start;
   align-self: center;
