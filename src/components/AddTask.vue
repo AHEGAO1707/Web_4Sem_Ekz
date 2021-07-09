@@ -35,10 +35,7 @@ export default {
     addTask: function () {
       let type = document.getElementById("inpType").value;
       let description = document.getElementById("inpDescription").value;
-      let this_Comp = this;
       if (type >= "1" && type <= "3" && description !== "") {
-        this_Comp.$store.commit('SET_Type',type);
-        this_Comp.$store.commit('SET_Desc',description);
         document.getElementById("inpDescription").value = "";
         document.getElementById("inpType").value = "";
         this.$emit('add',{type: type, description: description});
