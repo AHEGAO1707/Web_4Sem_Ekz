@@ -33,7 +33,7 @@
 
     <div id="foot" class="footer">
 
-      <label><H3>Алексеев Егор Романович</H3></label>
+      <label><H3>Алексеев Егор Романович </H3></label>
       <label><H3>Группа 191-361</H3></label>
       <label><H3>09.07.2021</H3></label>
 
