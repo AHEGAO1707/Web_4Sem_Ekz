@@ -20,10 +20,10 @@ const store = new Vuex.Store({
     },
   },
   mutations: {
-    SET_ID: (state, value) => {
+    SET_Type: (state, value) => {
       state.type = value;
     },
-    SET_Name: (state, value) => {
+    SET_Desc: (state, value) => {
       state.description = value;
     },
   },

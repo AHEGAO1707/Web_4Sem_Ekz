@@ -38,10 +38,10 @@ export default {
       let this_Comp = this;
       if (type >= "1" && type <= "3" && description !== "") {
         this_Comp.$store.commit('SET_Type',type);
-        this_Comp.$store.commit('SET_Description',description);
+        this_Comp.$store.commit('SET_Desc',description);
         document.getElementById("inpDescription").value = "";
         document.getElementById("inpType").value = "";
-
+        this.$emit('add',{type: type, description: description});
         document.getElementById('addTask').style.display = "none";
         Swal.fire({
           icon: 'success',
@@ -63,14 +63,17 @@ export default {
 
 <style scoped>
 .cool-form{
+  left: 35%;
   text-align: center;
-  width: fit-content !important;
+  width: 30%;
   max-width: max-content;
   margin: 10% auto auto;
   background-color: white;
   border-radius: 20px;
   border-color: black;
-
+  position: fixed;
+  border: 1px solid black;
+  padding: 20px;
 }
 .input-cool{
   height: 20px;

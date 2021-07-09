@@ -28,7 +28,20 @@
                                                                               src="./assets/add.png"></div>
     </div>
 
-    <AddTask id="addTask" style="display: none"></AddTask>
+    <AddTask id="addTask" style="display: none" @add="add" ></AddTask>
+
+
+    <div class="container_grid">
+      <div
+          v-for="(elem, i) in task"
+          :key="i"
+
+          class="task"
+          v-bind:class="[{ l1: elem.type === 1 }, { l2: elem.type === 2 }, { l3: elem.type === 3 }]"
+      >
+        <p>{{ elem.description }}</p>
+      </div>
+    </div>
 
 
     <div id="foot" class="footer">
@@ -53,7 +66,11 @@ export default {
   name: 'App',
   components: {AddTask},
   data() {
-
+    return {
+      type: "",
+      description: "",
+      task: []
+    }
   },
   methods: {
     add_task() {
@@ -68,7 +85,18 @@ export default {
         document.documentElement.style.setProperty('--color-background', '#474747');
       }
       this.clicked = !this.clicked
+    },
+    add: function (elem){
+      this.task.unshift(elem)
     }
+
+    /*computed: {
+      add_task_to_grid: function () {
+        let this_Comp = this;
+        var type = this_Comp.$store.getters.GET_Type;
+        var desc = this_Comp.$store.getters.GET_Desc;
+      },
+    },*/
   }
 }
 </script>
@@ -106,9 +134,19 @@ body {
   border: 1px black solid;
   flex-wrap: wrap;
 }
-
+.l1{
+  width: 150px;
+}
+.l2{
+  width: 200px;
+}
+.l3{
+  width: 300px;
+}
 .footer {
-
+  position: fixed;
+  bottom: 0;
+  width: 90%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -135,5 +173,31 @@ body {
   margin: auto;
   height: 50px;
 }
+
+.container_grid {
+  max-width: 100%;
+  padding: 50px;
+  margin-bottom: 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 320px);
+  gap: 2%;
+  grid-row-end: auto;
+  border-radius: 10px;
+}
+
+.task {
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+  /*width: 280px;*/
+  border: 1px solid black;
+  align-items: start;
+  align-self: center;
+  padding: 10px;
+  border-radius: 10px;
+}
+
 
 </style>
