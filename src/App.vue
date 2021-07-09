@@ -23,9 +23,9 @@
 
     <div class="controls-holder">
 
-      <div><h3 style="display: inline; background-color: white; border-radius: 5px">Добавить карточку с заданием</h3> <img alt="Добавить карточку" style=" cursor: pointer; display: inline"
+      <div><h3 style="display: inline; background-color: white; border-radius: 5px">Добавить карточку с заданием</h3> <button style="background: none; border: none"><img alt="Добавить карточку" style=" cursor: pointer; display: inline"
                                                                               @click="add_task" id="add_task" width="30"
-                                                                              src="./assets/add.png"></div>
+                                                                              src="./assets/add.png"></button></div>
     </div>
 
     <AddTask id="addTask" style="display: none" @add="add" ></AddTask>
@@ -40,8 +40,8 @@
       >
         <p class="text">{{ elem.description }}</p>
 
-        <img alt="Удалить задание" style="cursor: pointer; display: inline" @click="delete_task(i)" width="30"
-             src="./assets/delete.png">
+        <button style="background: none; border: none"> <img alt="Удалить задание" style="cursor: pointer; display: inline" @click="delete_task(i)" width="30"
+             src="./assets/delete.png"></button>
       </div>
     </div>
 
@@ -227,22 +227,23 @@ body {
 }
 
 .controls-holder {
+  margin-top: 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
   width: 92%;
-  margin: auto;
   height: 50px;
 }
 
 .container_grid {
   max-width: 100%;
-  padding: 50px;
-  margin-bottom: 50px;
+  padding: 10px;
+  margin-bottom: 120px;
   display: flex;
   flex-wrap: wrap;
   border-radius: 10px;
+
 }
 
 .task {
