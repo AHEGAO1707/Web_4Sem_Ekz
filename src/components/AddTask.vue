@@ -1,10 +1,10 @@
 <template>
-$END$
+  <div> </div>
 </template>
 
 <script>
 export default {
-name: "AddTask"
+  name: "AddTask"
 }
 </script>
 
