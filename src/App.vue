@@ -40,7 +40,8 @@
       >
         <p>{{ elem.description }}</p>
 
-        <button @click="deleteTask(i)"> Закрыть </button>>
+        <img style="cursor: pointer; display: inline" @click="delete_task(i)" width="30"
+             src="./assets/delete.png">
       </div>
     </div>
 
