@@ -3,17 +3,17 @@
     <form class="cool-form" >
       <h1>Добавление карточки с заданием</h1>
       <div>
-        <p><label>Выберите важность задачи от 1 до 3</label></p>
+        <p><label for="inpType">Выберите важность задачи от 1 до 3</label></p>
         <input type="number" min="1" max="3" class="input-cool" id="inpType" required placeholder="Выбор уровня важности задачи"/>
       </div>
       <div>
-        <p><label>Добавьте описание карточки </label></p>
+        <p><label for="inpDescription">Добавьте описание карточки </label></p>
         <input class="input-cool" id="inpDescription" placeholder="Описание карточки"/>
       </div>
       <hr/>
       <div>
-        <button class="cool-button" type="button" @click="closeWin" id="butBack">Закрыть</button> |
-        <button class="cool-button" type="button" @click="addTask" id="butAddTask" >Добавить карточку</button>
+        <button aria-label="закрыть форму" class="cool-button" type="button" @click="closeWin" id="butBack">Закрыть</button> |
+        <button aria-label="добавить карточку" class="cool-button" type="button" @click="addTask" id="butAddTask" >Добавить карточку</button>
       </div>
     </form>
   </div>
