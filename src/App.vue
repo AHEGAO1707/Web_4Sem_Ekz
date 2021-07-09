@@ -21,6 +21,15 @@
       </div>
     </div>
 
+    <div class="controls-holder">
+
+      <div><h3 style="display: inline">Добавить карточку с заданием</h3> <img style=" cursor: pointer; display: inline"
+                                                                              @click="add_task" id="add_task" width="30"
+                                                                              src="./assets/add.png"></div>
+    </div>
+
+    <AddTask></AddTask>
+
 
     <div id="foot" class="footer">
 
@@ -36,14 +45,18 @@
 <script>
 import {ToggleButton} from 'vue-js-toggle-button';
 import Vue from 'vue';
+import AddTask from "@/components/AddTask";
 
 Vue.component('ToggleButton', ToggleButton)
 
 export default {
   name: 'App',
-  components: {},
+  components: {AddTask},
   data() {},
   methods: {
+    add_task() {
+      document.getElementById('ModalWindow').style.display = "inline";
+    },
     editSchema() {
       if (this.clicked) {
         document.documentElement.style.setProperty('--color-title-gray', '#7f7f7f');
@@ -109,6 +122,16 @@ body {
 .edit-schema {
   display: flex;
   align-items: center;
+}
+
+.controls-holder {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 92%;
+  margin: auto;
+  height: 50px;
 }
 
 </style>
